@@ -1,0 +1,25 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+Отзывы пользователя:
+<table class="paddingBetweenCols">
+    <tr>
+        <th>Фильм</th>
+        <th>Отзыв</th>
+        <th>Оценка</th>
+    </tr>
+    {% for review in review_list %}
+    <tr>
+        <td>{{ review[0] }} ({{ review[1] }})</td>
+        <td>
+            {% if review[2] == None %}
+                --
+            {% else %}
+            <a href="{{ url_for('users.preview_review', review_id=review[3]) }}">✏️</a> {{ review[2] }}
+            {% endif %}
+        </td>
+        <td>{{ review[4] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

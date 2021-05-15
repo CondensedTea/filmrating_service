@@ -1,0 +1,10 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+    <form action="{{ url_for('users.update_review', review_id=review.id) }}">
+        <label for="text_field">Изменить отзыв</label>
+        <input type="text" id="text_field" name="review_text" value="{{ review.text }}">
+        <br>
+        <input type="submit" value="Обновить">
+    </form>
+{% endblock %}

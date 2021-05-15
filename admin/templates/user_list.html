@@ -1,0 +1,10 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+    <h1>Пользователи сервиса</h1>
+    <ul>
+    {% for user in userlist %}
+        <li> <a href="{{ url_for('users.user_page', user_id=user.id) }}">{{ user.login }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
